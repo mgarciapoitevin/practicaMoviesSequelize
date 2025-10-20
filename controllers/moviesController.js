@@ -1,10 +1,9 @@
-//Importar los modelos
 
 
 let moviesController = {
     index: function(req, res) {
         //Comentá la línea debajo para poder ver en pantalla lo que traen los modelos
-        return res.render("movies");//Este return anula la ejecución de todo el código sigueinte de la función. Comentá la línea para poder ver la información en la pantalla del navegador.
+        //return res.render("movies");Este return anula la ejecución de todo el código sigueinte de la función. Comentá la línea para poder ver la información en la pantalla del navegador.
 
         db.Movie.findAll()
             .then(function(resultados){
