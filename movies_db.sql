@@ -207,14 +207,14 @@ DROP TABLE IF EXISTS `movies`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `movies` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
   `title` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `rating` decimal(3,1) unsigned NOT NULL,
   `awards` int(10) unsigned NOT NULL DEFAULT '0',
   `release_date` datetime NOT NULL,
   `length` int(10) unsigned DEFAULT NULL,
   `genre_id` int(10) unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `movies_genre_id_foreign` (`genre_id`),
   CONSTRAINT `movies_genre_id_foreign` FOREIGN KEY (`genre_id`) REFERENCES `genres` (`id`)
