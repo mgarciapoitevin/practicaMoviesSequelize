@@ -1,4 +1,6 @@
 
+//Importar los modelos
+const db = require("../database/models");
 
 let actorsController = {
     index: function(req, res) {
@@ -16,5 +18,17 @@ let actorsController = {
     }
   };
 
+    db.Actor.findAll({
+      include: [{ association: "movies" }],
+    })
+      .then(function (resultados) {
+        return res.send(resultados);
+        //return res.render("actors", {actors: resultados});
+      })
+      .catch(function (error) {
+        return res.send(error);
+      });
+  },
+};
 
-  module.exports = actorsController;
+module.exports = actorsController;
